@@ -39,58 +39,6 @@ void ParseJSONArray(const std::string& jsonString,std::vector<sensores>&sen) {
     }
 }
 
-void ConvJSONtoOhtersFormat(const std::string& jsonString,
-                            unsigned int ctrl,
-                            std::string pathXML,
-                            std::string pathCSV,...){
-    
-    format files(pathXML,pathCSV,ctrl);
-    files.opening();
-
-    rapidjson::Document document;
-    document.Parse(jsonString.c_str());
-
-    if (!document.IsArray()) {
-        std::cerr << "Invalid JSON format. Expected array of objects." << std::endl;
-        return;
-    }
-
-    for (rapidjson::Value::ConstValueIterator it = document.Begin(); it != document.End(); ++it) {
-        if (!it->IsObject()) {
-            std::cerr << "Invalid JSON format. Expected object." << std::endl;
-            continue;
-        }
-        files.procesing(it);
-    }   
-    files.closing();
-} 
-
-void ConvJSONtoOhtersFormat(const std::string& jsonString,
-                            unsigned int ctrl,
-                            std::string pathXML,
-                            std::string pathCSV){
-    
-    format files(pathXML,pathCSV,ctrl);
-    files.opening();
-
-    rapidjson::Document document;
-    document.Parse(jsonString.c_str());
-
-    if (!document.IsArray()) {
-        std::cerr << "Invalid JSON format. Expected array of objects." << std::endl;
-        return;
-    }
-
-    for (rapidjson::Value::ConstValueIterator it = document.Begin(); it != document.End(); ++it) {
-        if (!it->IsObject()) {
-            std::cerr << "Invalid JSON format. Expected object." << std::endl;
-            continue;
-        }
-        files.procesing(it);
-    }   
-    files.closing();
-} 
-
 std::string getIdMayorValor(std::vector<sensores>sen){
         auto result = std::max_element(sen.begin(),sen.end(),
                 [](sensores& s1,sensores & s2){

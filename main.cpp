@@ -1,5 +1,6 @@
 #include <iostream>
 #include "jsontask.h"
+#include "writingtask.h"
 #include "sensores.h"
 #include "zonavalor.h"
 #include "format.h"
