@@ -3,7 +3,6 @@
 #include "writingtask.h"
 #include "sensores.h"
 #include "zonavalor.h"
-#include "format.h"
 
 
 int main(int argc, char const *argv[])
@@ -59,6 +58,6 @@ int main(int argc, char const *argv[])
         std::cout << "Find the file in:" << pathCSV << "\n\n";
     }
 
-    ConvJSONtoOhtersFormat(jsonString,number,pathXML,pathCSV);
+    ConvJSONtoOhtersFormat(filename,number,pathXML,pathCSV);
     return 0;
 }

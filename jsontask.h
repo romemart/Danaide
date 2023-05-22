@@ -10,7 +10,6 @@
 #include <numeric>
 #include "sensores.h"
 #include "zonavalor.h"
-#include "format.h"
 
 #include "rapidjson/document.h"
 #include "rapidjson/prettywriter.h"
